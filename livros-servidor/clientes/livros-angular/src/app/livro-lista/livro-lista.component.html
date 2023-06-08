@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main class="container">
+        <h1>Livros</h1>
+        <table class="table">
+            <thead class="bg-dark text-white">
+                <tr>
+                  <th scope="col" class="text-white">Título</th>
+                  <th scope="col" class="text-white">Editora</th>
+                  <th scope="col" class="text-white">Autores</th>
+                  <th scope="col" class="text-white">Resumo</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+          <tbody>
+            <tr *ngFor="let livro of livros">
+                <td>{{ livro.titulo }}</td>
+                <td>{{ obterNome(livro.codEditora) }}</td>
+                <td>
+                  <ul>
+                    <li *ngFor="let autor of livro.autores">{{ autor }}</li>
+                  </ul>
+                </td>
+                <td>{{ livro.resumo }}</td>
+                <td>
+                  <div class="float-end">
+                    <button type="button" class="btn btn-danger" (click)="excluir(livro.codigo)">Excluir</button>
+                  </div>
+                </td>
+              </tr>              
+          </tbody>
+        </table>
+      </main>
+</body>
+</html>
